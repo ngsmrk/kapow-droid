@@ -105,9 +105,9 @@ public class MainActivity extends Activity {
     private void loadReleaseData(String url, String title) throws IOException, JSONException {
         JSONObject jsonData = fetchData(url);
 
-        Intent intent = new Intent(this, DisplayMessageActivity.class);
-        intent.putExtra(DisplayMessageActivity.RELEASE_DATA, jsonData.toString());
-        intent.putExtra(DisplayMessageActivity.TITLE, title);
+        Intent intent = new Intent(this, DisplayReleasesActivity.class);
+        intent.putExtra(DisplayReleasesActivity.RELEASE_DATA, jsonData.toString());
+        intent.putExtra(DisplayReleasesActivity.TITLE, title);
 
         startActivity(intent);
     }

@@ -12,7 +12,7 @@
             </intent-filter>
         </activity>
     <activity
-        android:name="com.example.DisplayMessageActivity"
+        android:name=".DisplayReleasesActivity"
         android:label="@string/title_activity_display_message"
         android:parentActivityName="com.example.myfirstapp.MainActivity" >
         <meta-data

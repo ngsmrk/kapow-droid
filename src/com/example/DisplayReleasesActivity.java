@@ -5,10 +5,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
-public class DisplayMessageActivity extends Activity {
+public class DisplayReleasesActivity extends Activity {
 
-    public final static String RELEASE_DATA = new StringBuilder(DisplayMessageActivity.class.getPackage().getName()).append(".RELEASE_DATA").toString();
-    public final static String TITLE = new StringBuilder(DisplayMessageActivity.class.getPackage().getName()).append(".TITLE").toString();
+    public final static String RELEASE_DATA = new StringBuilder(DisplayReleasesActivity.class.getPackage().getName()).append(".RELEASE_DATA").toString();
+    public final static String TITLE = new StringBuilder(DisplayReleasesActivity.class.getPackage().getName()).append(".TITLE").toString();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
