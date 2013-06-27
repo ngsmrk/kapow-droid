@@ -7,10 +7,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
-public class MyActivity extends Activity {
-    private static final String TAG = MyActivity.class.getName();
+public class MainActivity extends Activity {
+    private static final String TAG = MainActivity.class.getName();
 
-    public final static String EXTRA_MESSAGE = new StringBuilder(MyActivity.class.getPackage().getName()).append("EXTRA_MESSAGE").toString();
+    public final static String EXTRA_MESSAGE = new StringBuilder(MainActivity.class.getPackage().getName()).append("EXTRA_MESSAGE").toString();
 
     /**
      * Called when the activity is first created.

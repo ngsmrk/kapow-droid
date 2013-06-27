@@ -13,7 +13,7 @@ public class DisplayMessageActivity extends Activity {
 
         // Get the message from the intent
         Intent intent = getIntent();
-        String message = intent.getStringExtra(MyActivity.EXTRA_MESSAGE);
+        String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
 
         // Create the text view
         TextView textView = new TextView(this);
