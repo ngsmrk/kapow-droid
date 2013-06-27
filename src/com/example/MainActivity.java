@@ -11,7 +11,6 @@ import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -103,19 +102,19 @@ public class MainActivity extends Activity {
     }
 
     private void loadReleaseData(String url, String title) throws IOException, JSONException {
-        JSONObject jsonData = fetchData(url);
+        String releaseData = fetchData(url);
 
         Intent intent = new Intent(this, DisplayReleasesActivity.class);
-        intent.putExtra(DisplayReleasesActivity.RELEASE_DATA, jsonData.toString());
+        intent.putExtra(DisplayReleasesActivity.RELEASE_DATA, releaseData);
         intent.putExtra(DisplayReleasesActivity.TITLE, title);
 
         startActivity(intent);
     }
 
-    private JSONObject fetchData(String url) throws IOException, JSONException {
+    private String fetchData(String url) throws IOException, JSONException {
 
         // TODO should be done async
-        JSONObject jsonData = null;
+        String resultString = null;
 
         final boolean networkAvailable = new NetworkManager().isNetworkAvailable(this);
         Log.d(TAG, "Network available: " + networkAvailable);
@@ -140,16 +139,13 @@ public class MainActivity extends Activity {
                 instream = new GZIPInputStream(instream);
             }
 
-            String resultString = convertStreamToString(instream);
+            resultString = convertStreamToString(instream);
             instream.close();
 
             Log.i(TAG, "HTTPResponse content: " + resultString);
-
-            jsonData = new JSONObject(resultString);
-            Log.i(TAG, "<JSONObject>\n" + jsonData.toString() + "\n</JSONObject>");
         }
 
-        return jsonData;
+        return resultString;
     }
 
     private String convertStreamToString(InputStream is) throws IOException {
