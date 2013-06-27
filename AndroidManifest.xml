@@ -20,4 +20,5 @@
             android:value="com.example.myfirstapp.MainActivity" />
     </activity>
     </application>
+        <uses-sdk android:minSdkVersion="9"/>
 </manifest>
