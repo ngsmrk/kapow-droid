@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">FirstApp</string>
-    <string name="edit_message">Click Me!</string>
+    <string name="edit_message">Fill Me In</string>
+    <string name="button_send">Send!!</string>
 </resources>

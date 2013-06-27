@@ -89,4 +89,10 @@
     <!-- version-tag: 1 -->
     <import file="${sdk.dir}/tools/ant/build.xml" />
 
+    <target name="re-install">
+        <exec command="adb uninstall com.example" failonerror="true"/>
+        <antcall target="debug"/>
+        <exec command="adb install bin/FirstApp-debug.apk" failonerror="true"/>
+    </target>
+
 </project>
