@@ -73,6 +73,10 @@ public class MainActivity extends Activity {
     }
 
     public void sendMessage(View view) {
+
+        final boolean networkAvailable = new NetworkManager().isNetworkAvailable(this);
+        Log.d(TAG, "Network available: " + networkAvailable);
+
         Log.d(TAG, "Sending message");
 
         Intent intent = new Intent(this, DisplayMessageActivity.class);
