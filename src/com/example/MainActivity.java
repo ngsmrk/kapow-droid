@@ -22,8 +22,6 @@ import java.util.zip.GZIPInputStream;
 public class MainActivity extends Activity {
     private static final String TAG = MainActivity.class.getName();
 
-    public final static String EXTRA_MESSAGE = new StringBuilder(MainActivity.class.getPackage().getName()).append("EXTRA_MESSAGE").toString();
-
     /**
      * Called when the activity is first created.
      */
@@ -84,26 +82,29 @@ public class MainActivity extends Activity {
         Log.d(TAG, "Restored Instance State");
     }
 
-    public void sendMessage(View view) throws JSONException, IOException {
+    public void getNewReleases(View view) throws JSONException, IOException {
 
-        Log.d(TAG, "Sending message");
+        Log.d(TAG, "Getting new releases");
 
-        JSONObject jsonData = fetchData();
+        String url = "http://kapow-api.herokuapp.com/releases/new.json";
+        JSONObject jsonData = fetchData(url);
 
         Intent intent = new Intent(this, DisplayMessageActivity.class);
-        intent.putExtra(EXTRA_MESSAGE, jsonData.toString());
+        intent.putExtra(DisplayMessageActivity.RELEASE_DATA, jsonData.toString());
+        intent.putExtra(DisplayMessageActivity.TITLE, "New Releases");
+
         startActivity(intent);
     }
 
-    private JSONObject fetchData() throws IOException, JSONException {
+    private JSONObject fetchData(String url) throws IOException, JSONException {
 
+        // TODO should be done async
         JSONObject jsonData = null;
 
         final boolean networkAvailable = new NetworkManager().isNetworkAvailable(this);
         Log.d(TAG, "Network available: " + networkAvailable);
 
         DefaultHttpClient httpclient = new DefaultHttpClient();
-        String url = "http://kapow-api.herokuapp.com/releases/new.json";
         HttpGet httpPostRequest = new HttpGet(url);
 
         // Set HTTP parameters
