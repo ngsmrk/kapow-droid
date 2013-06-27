@@ -87,11 +87,27 @@ public class MainActivity extends Activity {
         Log.d(TAG, "Getting new releases");
 
         String url = "http://kapow-api.herokuapp.com/releases/new.json";
+        final String title = "New Releases";
+
+        loadReleaseData(url, title);
+    }
+
+    public void getUpcomingReleases(View view) throws JSONException, IOException {
+
+        Log.d(TAG, "Getting upcoming releases");
+
+        String url = "http://kapow-api.herokuapp.com/releases/upcoming.json";
+        final String title = "Upcoming Releases";
+
+        loadReleaseData(url, title);
+    }
+
+    private void loadReleaseData(String url, String title) throws IOException, JSONException {
         JSONObject jsonData = fetchData(url);
 
         Intent intent = new Intent(this, DisplayMessageActivity.class);
         intent.putExtra(DisplayMessageActivity.RELEASE_DATA, jsonData.toString());
-        intent.putExtra(DisplayMessageActivity.TITLE, "New Releases");
+        intent.putExtra(DisplayMessageActivity.TITLE, title);
 
         startActivity(intent);
     }
