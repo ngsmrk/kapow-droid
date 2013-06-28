@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -28,6 +29,11 @@ public class MainActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+
+        if (new NetworkManager().isNetworkAvailable(this)) {
+            findViewById(R.id.new_rel_button1).setEnabled(true);
+            findViewById(R.id.up_rel_button1).setEnabled(true);
+        }
 
         Log.d(TAG, "Created");
     }
@@ -115,9 +121,6 @@ public class MainActivity extends Activity {
 
         // TODO should be done async
         String resultString = null;
-
-        final boolean networkAvailable = new NetworkManager().isNetworkAvailable(this);
-        Log.d(TAG, "Network available: " + networkAvailable);
 
         DefaultHttpClient httpclient = new DefaultHttpClient();
         HttpGet httpPostRequest = new HttpGet(url);

@@ -5,13 +5,17 @@
               android:layout_height="match_parent"
               android:orientation="horizontal">
     <Button
+            android:id="@+id/new_rel_button1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/new_releases_button"
+            android:enabled="false"
             android:onClick="getNewReleases"/>
     <Button
+            android:id="@+id/up_rel_button1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/upcoming_releases_button"
+            android:enabled="false"
             android:onClick="getUpcomingReleases"/>
 </LinearLayout>
