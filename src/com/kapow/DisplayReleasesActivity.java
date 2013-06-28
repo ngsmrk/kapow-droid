@@ -1,9 +1,12 @@
 package com.kapow;
 
-import android.app.ListActivity;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ArrayAdapter;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -11,7 +14,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DisplayReleasesActivity extends ListActivity {
+public class DisplayReleasesActivity extends Activity {
 
     private static final String TAG = DisplayReleasesActivity.class.getName();
 
@@ -42,10 +45,11 @@ public class DisplayReleasesActivity extends ListActivity {
 
         setTitle(intent.getStringExtra(TITLE).concat(" : ").concat(shippingDate));
 
-        final String[] array = titles.toArray((new String[0]));
-        Log.d(TAG, new Integer(array.length).toString());
-
         setContentView(R.layout.release_list_view);
+
+        final ListAdapter listAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, titles);
+        final ListView listview = (ListView) findViewById(R.id.release_list_view);
+        listview.setAdapter(listAdapter);
 
         setTitle(intent.getStringExtra(TITLE).concat(" : ").concat(shippingDate));
     }
