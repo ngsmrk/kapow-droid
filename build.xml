@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="FirstApp" default="help">
+<project name="KapowDroid" default="help">
 
     <!-- The local.properties file is created and updated by the 'android' tool.
          It contains the path to the SDK. It should *NOT* be checked into
@@ -92,7 +92,7 @@
     <target name="re-install">
         <exec command="adb uninstall com.example" failonerror="true"/>
         <antcall target="debug"/>
-        <exec command="adb install bin/FirstApp-debug.apk" failonerror="true"/>
+        <exec command="adb install bin/KapowDroid-debug.apk" failonerror="true"/>
     </target>
 
 </project>
