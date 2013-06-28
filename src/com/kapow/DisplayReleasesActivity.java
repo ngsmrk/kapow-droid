@@ -1,6 +1,6 @@
 package com.kapow;
 
-import android.app.Activity;
+import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,7 +11,8 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DisplayReleasesActivity extends Activity {
+public class DisplayReleasesActivity extends ListActivity {
+
     private static final String TAG = DisplayReleasesActivity.class.getName();
 
     public final static String RELEASE_DATA = new StringBuilder(DisplayReleasesActivity.class.getPackage().getName()).append(".RELEASE_DATA").toString();
@@ -39,7 +40,9 @@ public class DisplayReleasesActivity extends Activity {
             Log.e(TAG, "Failed to parse response", e);
         }
 
-        String[] array = titles.toArray((new String[0]));
+        setTitle(intent.getStringExtra(TITLE).concat(" : ").concat(shippingDate));
+
+        final String[] array = titles.toArray((new String[0]));
         Log.d(TAG, new Integer(array.length).toString());
 
         setContentView(R.layout.release_list_view);
