@@ -95,4 +95,8 @@
         <exec command="adb install bin/KapowDroid-debug.apk" failonerror="true"/>
     </target>
 
+    <target name="launch-emulator">
+        <exec command="emulator -avd FirstApp" failonerror="true"/>
+    </target>
+
 </project>
