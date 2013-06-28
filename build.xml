@@ -90,7 +90,7 @@
     <import file="${sdk.dir}/tools/ant/build.xml" />
 
     <target name="re-install">
-        <exec command="adb uninstall com.example" failonerror="true"/>
+        <exec command="adb uninstall com.kapow" failonerror="true"/>
         <antcall target="debug"/>
         <exec command="adb install bin/KapowDroid-debug.apk" failonerror="true"/>
     </target>

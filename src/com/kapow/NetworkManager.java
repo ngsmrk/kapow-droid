@@ -1,4 +1,4 @@
-package com.example;
+package com.kapow;
 
 
 import android.app.Activity;
